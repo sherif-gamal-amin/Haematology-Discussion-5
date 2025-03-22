@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haematology Discussion (5)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            user-select: none; /* يمنع تحديد النص */
+            -webkit-user-select: none; /* لمتصفحات WebKit مثل Chrome وSafari */
+            -moz-user-select: none; /* لمتصفح Firefox */
+            -ms-user-select: none; /* لمتصفح Internet Explorer/Edge */
+        }
+        @media print { /* إخفاء الصفحة عند الطباعة */
+            body { 
+                display: none;
+            }
+        }
+
+        .quiz-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .timer {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none;
+        }
+        .incorrect {
+            color: red;
+        }
+        .correct {
+            color: green;
+        }
+        .question-result {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        img {
+            pointer-events: none; /* يمنع سحب الصور */
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Haematology Discussion (5)</h1>
+        <div class="timer" id="timer">Time remaining: 60 seconds</div>
+
+        <div class="question" id="question-1">
+            <p>1. 77-year-old lady is admitted by the emergency department complaining of difficulty coping at home. She is unable to mobilise independently and has a poor appetite due to difficulty swallowing. She has a diagnosis of oesophageal cancer but is not thought to be a candidate for chemotherapy. Her GP recently started her on nitrofurantoin for a urinary tract infection.
+                On examination she is a thin, frail lady who is alert and oriented. There is no neurological deficit in the upper limbs. She has weakness of hip flexion and knee extension in both legs, but markedly more so on the right. You are able to elicit some loss of pinprick sensation on the anterior thigh. Her reflexes are brisk with an upgoing plantar on the right.
+                Her blood results are as follows:
+                Hb 101 g/l
+                Platelets 440 * 10 /l
+                WBC 8.4 * 10 /l
+                MCV 99 fL
+                Na 136 mmol/l
+                K 4.8 mmol/l
+                Urea 3.7 mmol/l
+                Creatinine 52 µmol/l
+                What is the next most appropriate step in this patient's management?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="Transfer to hospice"> Transfer to hospice</label>
+                <label><input type="radio" name="q1" value="Refer for physiotherapy"> Refer for physiotherapy</label>
+                <label><input type="radio" name="q1" value="MRI imaging of the spinal cord"> MRI imaging of the spinal cord</label>
+                <label><input type="radio" name="q1" value="Check B12 and folate levels"> Check B12 and folate levels</label>
+                <label><input type="radio" name="q1" value="Stop nitrofurantoin"> Stop nitrofurantoin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-2">
+            <p>2. 60-year-old male is brought in by his concerned son. The patient is known to have advanced, non-small cell lung cancer and is currently under review for palliative radiotherapy. Over the last 2 days, he has experienced increasing weakness of his legs confining him to his bed. 
+                On direct questioning, he reports ongoing chest discomfort, breathlessness and sweating at night for several months. He has also noticed some difficulty passing urine associated with the weakness. On exam, he has global reduced power of the legs with increased ankle and knee reflexes. 
+                His observation are seen below 
+                HR 80 /min
+                BP 142/80 mmHg
+                RR 25 /min
+                Oxygen sats 95%
+                Temperature 37.6 ºC
+                What is the most appropriate initial management for this patient?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Broad spectrum antibiotics"> Broad spectrum antibiotics</label>
+                <label><input type="radio" name="q2" value="High-dose oral dexamethasone"> High-dose oral dexamethasone</label>
+                <label><input type="radio" name="q2" value="IV mannitol"> IV mannitol</label>
+                <label><input type="radio" name="q2" value="Urgent MRI whole spine"> Urgent MRI whole spine</label>
+                <label><input type="radio" name="q2" value="Urgent referral for radiotherapy"> Urgent referral for radiotherapy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-3">
+            <p>3. 16 years old boy presents with hemarthrosis that developed in his left knee following an injury in the garden. Which of the following is the most likely diagnosis ?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="Anti phospholipid syndrome"> Anti phospholipid syndrome</label>
+                <label><input type="radio" name="q3" value="Antithrombin III deficiency"> Antithrombin III deficiency</label>
+                <label><input type="radio" name="q3" value="Hemophilia A"> Hemophilia A</label>
+                <label><input type="radio" name="q3" value="Von weilbrand disease"> Von weilbrand disease</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-4">
+            <p>4. Which of the following is false in hemophilia:</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="Normal prothrombin time"> Normal prothrombin time</label>
+                <label><input type="radio" name="q4" value="von Willebrand antigens level is grossly diminished"> von Willebrand antigens level is grossly diminished</label>
+                <label><input type="radio" name="q4" value="Increased partial thromboplastin time"> Increased partial thromboplastin time</label>
+                <label><input type="radio" name="q4" value="Absent factor VIII coagulant activity"> Absent factor VIII coagulant activity</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-5">
+            <p>5. 45 years old man is to undergo knee surgery. He has a history of factor IX deficiency. Which of the following is most likely to reduce risk of bleeding?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="Tranexemic acid"> Tranexemic acid</label>
+                <label><input type="radio" name="q5" value="Vasopressin"> Vasopressin</label>
+                <label><input type="radio" name="q5" value="Vitamin K"> Vitamin K</label>
+                <label><input type="radio" name="q5" value="Von weilbrand factor"> Von weilbrand factor</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-6">
+            <p>6. Which of the following is the most common inherited bleeding disorder ??</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="DIC"> DIC</label>
+                <label><input type="radio" name="q6" value="Hemophilia"> Hemophilia</label>
+                <label><input type="radio" name="q6" value="von Willebrand disease"> von Willebrand disease</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-7">
+            <p>7. 25 years old woman presents to hematology clinic with significant bleeding episode at dentist after extraction of wisdom tooth. Investigations reveal mid iron deficiency anaemia with prolonged activated partial thromboplastin time APTT of 58 seconds ( normal 20- 35 seconds ). What is the most likely diagnosis ?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="Factor XI deficiency"> Factor XI deficiency</label>
+                <label><input type="radio" name="q7" value="Hemophilia A"> Hemophilia A</label>
+                <label><input type="radio" name="q7" value="Hemophilia B"> Hemophilia B</label>
+                <label><input type="radio" name="q7" value="Von weilbrand disease"> Von weilbrand disease</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-8">
+            <p>8. Which is not true in polycythemia rubra vera ?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="Increased RBCs mass"> Increased RBCs mass</label>
+                <label><input type="radio" name="q8" value="Markedkly hypercellular marrow"> Markedkly hypercellular marrow</label>
+                <label><input type="radio" name="q8" value="Thrombocytopaenia"> Thrombocytopaenia</label>
+                <label><input type="radio" name="q8" value="Basophilia"> Basophilia</label>
+                <label><input type="radio" name="q8" value="Hyperuricemia"> Hyperuricemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-9">
+            <p>9. Which is false in polycythemia vera ?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="High erythropoietin level"> High erythropoietin level</label>
+                <label><input type="radio" name="q9" value="Massive splenomegaly"> Massive splenomegaly</label>
+                <label><input type="radio" name="q9" value="Hyperviscosity"> Hyperviscosity</label>
+                <label><input type="radio" name="q9" value="Normal arterial saturation"> Normal arterial saturation</label>
+                <label><input type="radio" name="q9" value="Low ESR"> Low ESR</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-10">
+            <p>10. Most effective treatment of polycythemia vera is:</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="Fresh frozen plasma"> Fresh frozen plasma</label>
+                <label><input type="radio" name="q10" value="Splenectomy"> Splenectomy</label>
+                <label><input type="radio" name="q10" value="Phlebotomy"> Phlebotomy</label>
+                <label><input type="radio" name="q10" value="Exchange transfusion"> Exchange transfusion</label>
+                <label><input type="radio" name="q10" value="Cyclophosphamide"> Cyclophosphamide</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-11">
+            <p>11. 34-year-old man who is known to have type 1 von Willebrand's disease asks for advice. He is due to have a tooth extracted at the dentist next week. Which one of the following is the most appropriate management to reduce the risk of bleeding?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="Mefanamic acid"> Mefanamic acid</label>
+                <label><input type="radio" name="q11" value="Vitamin K"> Vitamin K</label>
+                <label><input type="radio" name="q11" value="Desmopressin"> Desmopressin</label>
+                <label><input type="radio" name="q11" value="Factor VIII concentrate"> Factor VIII concentrate</label>
+                <label><input type="radio" name="q11" value="Factor VII concentrate"> Factor VII concentrate</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-12">
+            <p>12. What is mechanism of action of DDAVP in von willebrand disease?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="Acts as substitute carrier for factor VIII"> Acts as substitute carrier for factor VIII</label>
+                <label><input type="radio" name="q12" value="Inhibits breakdown of von weilbrand factor"> Inhibits breakdown of von weilbrand factor</label>
+                <label><input type="radio" name="q12" value="Prevents renal excretion of von weilbrand factor"> Prevents renal excretion of von weilbrand factor</label>
+                <label><input type="radio" name="q12" value="Stimulates release of von weilbrand factor from endothelial cells"> Stimulates release of von weilbrand factor from endothelial cells</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-13">
+            <p>13. Which of the following is not a myeloproliferative disorder:</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="Chronic myeloid leukemia"> Chronic myeloid leukemia</label>
+                <label><input type="radio" name="q13" value="Polycythemia vera"> Polycythemia vera</label>
+                <label><input type="radio" name="q13" value="Essential thrombocytopenia"> Essential thrombocytopenia</label>
+                <label><input type="radio" name="q13" value="Myelofibrosis"> Myelofibrosis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-14">
+            <p>14. Which one of the following would most suggest a leukemoid reaction rather than chronic myeloid leukaemia?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="Raised packed cell volume"> Raised packed cell volume</label>
+                <label><input type="radio" name="q14" value="Right shift of neutrophils"> Right shift of neutrophils</label>
+                <label><input type="radio" name="q14" value="Low leucocyte alkaline phosphatase score"> Low leucocyte alkaline phosphatase score</label>
+                <label><input type="radio" name="q14" value="Dohle bodies in the white cells"> Dohle bodies in the white cells</label>
+                <label><input type="radio" name="q14" value="Positive osmotic fragility test"> Positive osmotic fragility test</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-15">
+            <p>15. 67-year-old man is diagnosed with myelofibrosis. What is the most common presenting symptom of myelofibrosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="Lethargy"> Lethargy</label>
+                <label><input type="radio" name="q15" value="Anorexia and weight loss"> Anorexia and weight loss</label>
+                <label><input type="radio" name="q15" value="Night sweats"> Night sweats</label>
+                <label><input type="radio" name="q15" value="Easy bruising"> Easy bruising</label>
+                <label><input type="radio" name="q15" value="Splenomegaly"> Splenomegaly</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-16">
+            <p>16. 62-year-old man presents with lethargy. A full blood count is taken and is reported as follows: Hb 10.2 g/dl Platelets 330 * 109/1 WBC 15.2 * 109 /I Film Leukoerythroblastic picture. Tear-drop poikilocytes seen What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="Myelodysplasia"> Myelodysplasia</label>
+                <label><input type="radio" name="q16" value="Chronic lymphocytic leukaemia"> Chronic lymphocytic leukaemia</label>
+                <label><input type="radio" name="q16" value="Myelofibrosis"> Myelofibrosis</label>
+                <label><input type="radio" name="q16" value="Chronic myeloid leukaemia"> Chronic myeloid leukaemia</label>
+                <label><input type="radio" name="q16" value="Post-splenectomy"> Post-splenectomy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-17">
+            <p>17. 60-year-old man presents with abdominal pain and a cupful of haematemesis. On examination he is noted to have ascites, hepatomegaly and a very enlarged spleen extending to the right iliac fossa. His initial blood tests reveal a leukoerythroblastic picture with a haemoglobin of 8, white cell count (WCC) of 3 and platelets of 120. A diagnosis of myelofibrosis is made. What is most likely to be seen on the peripheral blood smear?</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="Schistocytosis"> Schistocytosis</label>
+                <label><input type="radio" name="q17" value="Sickle cells"> Sickle cells</label>
+                <label><input type="radio" name="q17" value="Spherocytes"> Spherocytes</label>
+                <label><input type="radio" name="q17" value="Dacrocytes"> Dacrocytes</label>
+                <label><input type="radio" name="q17" value="Target cells"> Target cells</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-18">
+            <p>18. Each one of the following is associated with polycythaemia vera, except:</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="Splenomegaly"> Splenomegaly</label>
+                <label><input type="radio" name="q18" value="Hyperviscosity"> Hyperviscosity</label>
+                <label><input type="radio" name="q18" value="Raised ESR"> Raised ESR</label>
+                <label><input type="radio" name="q18" value="Hypertension"> Hypertension</label>
+                <label><input type="radio" name="q18" value="Pruritus"> Pruritus</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-19">
+            <p>19. 50-year-old female is referred to the haematology clinic with haemoglobin of 19.2 g/dl She is a non-smoker. Her oxygen saturations on room air are 98% and she is noted to have mass in the left upper quadrant. What is the most useful test to establish whether she has polycythaemia rubra vera?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="Bone marrow aspiration"> Bone marrow aspiration</label>
+                <label><input type="radio" name="q19" value="Blood film"> Blood film</label>
+                <label><input type="radio" name="q19" value="Red cell mass"> Red cell mass</label>
+                <label><input type="radio" name="q19" value="Transferrin saturation"> Transferrin saturation</label>
+                <label><input type="radio" name="q19" value="JAK2 mutation screen"> JAK2 mutation screen</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-20">
+            <p>20. What are the most common types of transformations seen in patients with polycythaemia rubra vera?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="Myelodysplasia + chronic myeloid leukaemia"> Myelodysplasia + chronic myeloid leukaemia</label>
+                <label><input type="radio" name="q20" value="Myelofibrosis + chronic myeloid leukaemia"> Myelofibrosis + chronic myeloid leukaemia</label>
+                <label><input type="radio" name="q20" value="Myelodysplasia + myelofibrosis"> Myelodysplasia + myelofibrosis</label>
+                <label><input type="radio" name="q20" value="Myelofibrosis + acute myeloid leukaemia"> Myelofibrosis + acute myeloid leukaemia</label>
+                <label><input type="radio" name="q20" value="Myelodysplasia + acute myeloid leukaemia"> Myelodysplasia + acute myeloid leukaemia</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-21">
+            <p>21. 42-year-old female is noted to have a Hb of 17.8 g/dL. Which one of the following is least likely to be the cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="Polycythaemia rubra vera"> Polycythaemia rubra vera</label>
+                <label><input type="radio" name="q21" value="Chronic obstructive pulmonary disease"> Chronic obstructive pulmonary disease</label>
+                <label><input type="radio" name="q21" value="Hypernephroma"> Hypernephroma</label>
+                <label><input type="radio" name="q21" value="Haemochromatosis"> Haemochromatosis</label>
+                <label><input type="radio" name="q21" value="Dehydration"> Dehydration</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-22">
+            <p>22. Most common comlication of peptic ulcer ??</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="Internal bleeding"> Internal bleeding</label>
+                <label><input type="radio" name="q22" value="Chronic gastritis"> Chronic gastritis</label>
+                <label><input type="radio" name="q22" value="Gastric cancer"> Gastric cancer</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-23">
+            <p>23. What is the gold standard for the evaluation of patients with Crohn's disease ??</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="Colonoscopy"> Colonoscopy</label>
+                <label><input type="radio" name="q23" value="CT abdomen with contrast"> CT abdomen with contrast</label>
+                <label><input type="radio" name="q23" value="CT abdomen without contrast"> CT abdomen without contrast</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-24">
+            <p>24. 29 years old woman with jaundice. total bilirubin 3, direct bilirubin 1.3  ... What is your diagnosis ??</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="Dubin johnson syndrome"> Dubin johnson syndrome</label>
+                <label><input type="radio" name="q24" value="Sickle cell anemia"> Sickle cell anemia</label>
+                <label><input type="radio" name="q24" value="Crigler najjar syndrome"> Crigler najjar syndrome</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-25">
+            <p>25. All are cause of palpable purpura except...</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="Henoch Schonlein purpura"> Henoch Schonlein purpura</label>
+                <label><input type="radio" name="q25" value="Thrombocytopenia"> Thrombocytopenia</label>
+                <label><input type="radio" name="q25" value="Rocky mountain spotted fever"> Rocky mountain spotted fever</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-26">
+            <p>26. Which one is palpable purpura ?</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="Rocky mountain fever"> Rocky mountain fever</label>
+                <label><input type="radio" name="q26" value="ITP"> ITP</label>
+                <label><input type="radio" name="q26" value="DIC"> DIC</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-27">
+            <p>27. Cause of painless generalised lymphadenopathy?</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="Q fever"> Q fever</label>
+                <label><input type="radio" name="q27" value="Typhus"> Typhus</label>
+                <label><input type="radio" name="q27" value="Rocky mountain spotted fever"> Rocky mountain spotted fever</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-28">
+            <p>28. Eosinophilia is a feature of:</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="Non-Hodgkin's lymphoma"> Non-Hodgkin's lymphoma</label>
+                <label><input type="radio" name="q28" value="Sickle-cell anaemia"> Sickle-cell anaemia</label>
+                <label><input type="radio" name="q28" value="Hodgkin's disease"> Hodgkin's disease</label>
+                <label><input type="radio" name="q28" value="Hemophilia"> Hemophilia</label>
+                <label><input type="radio" name="q28" value="Cushing's syndrome"> Cushing's syndrome</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-29">
+            <p>29. Each one of the following may cause eosinophilia except:</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="Bronchial asthma"> Bronchial asthma</label>
+                <label><input type="radio" name="q29" value="Histoplasmosis"> Histoplasmosis</label>
+                <label><input type="radio" name="q29" value="Churg-Strauss syndrome"> Churg-Strauss syndrome</label>
+                <label><input type="radio" name="q29" value="Psoriasis"> Psoriasis</label>
+                <label><input type="radio" name="q29" value="Nematode infection"> Nematode infection</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-30">
+            <p>30. Each one of the following may cause eosinophilia except:</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="Extrinsic allergic alveolitis"> Extrinsic allergic alveolitis</label>
+                <label><input type="radio" name="q30" value="Allergic bronchopulmonary aspergillosis"> Allergic bronchopulmonary aspergillosis</label>
+                <label><input type="radio" name="q30" value="Churg-Strauss syndrome"> Churg-Strauss syndrome</label>
+                <label><input type="radio" name="q30" value="Psoriasis"> Psoriasis</label>
+                <label><input type="radio" name="q30" value="Toxocara infection"> Toxocara infection</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-31">
+            <p>31. Man presents with an area of dermatitis on his left wrist. He thinks he may be allergic to nickel. Which one of the following is the best test to investigate this possibility?</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="Skin patch test"> Skin patch test</label>
+                <label><input type="radio" name="q31" value="Radioallergosorbent test (RAST)"> Radioallergosorbent test (RAST)</label>
+                <label><input type="radio" name="q31" value="Nickel IgG levels"> Nickel IgG levels</label>
+                <label><input type="radio" name="q31" value="Skin prick test"> Skin prick test</label>
+                <label><input type="radio" name="q31" value="Nickel IgM levels"> Nickel IgM levels</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-32">
+            <p>32. 26-year-old newly qualified nurse presents as she has developed a bilateral erythematous rash on both hands. She has recently emigrated from the Philippines and has no past medical history of note. A diagnosis of contact dermatitis is suspected. What is the most suitable to test to identify the underlying cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="Radioallergosorbent test (RAST)"> Radioallergosorbent test (RAST)</label>
+                <label><input type="radio" name="q32" value="Latex IgM levels"> Latex IgM levels</label>
+                <label><input type="radio" name="q32" value="Skin prick test"> Skin prick test</label>
+                <label><input type="radio" name="q32" value="Urinary porphyrins"> Urinary porphyrins</label>
+                <label><input type="radio" name="q32" value="Skin patch test"> Skin patch test</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-33">
+            <p>33. 25-year-old man presents with bloating and alteration in his bowel habit. He has been keeping a food diary and feels his symptoms may be secondary to a food allergy. Blood tests show a normal full blood count, ESR and thyroid function tests. Anti-endomysial antibodies are negative. What is the most suitable test to investigate possible food allergy?</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="Total IgE levels"> Total IgE levels</label>
+                <label><input type="radio" name="q33" value="Hair analysis"> Hair analysis</label>
+                <label><input type="radio" name="q33" value="Skin patch testing"> Skin patch testing</label>
+                <label><input type="radio" name="q33" value="Skin prick test"> Skin prick test</label>
+                <label><input type="radio" name="q33" value="Jejunal biopsy"> Jejunal biopsy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-34">
+            <p>34. 23-year-old student is investigated following an anaphylactic reaction suspected to be secondary to a wasp sting. Which one of the following is the most appropriate first-line test to investigate the cause of the reaction?</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="Hair analysis"> Hair analysis</label>
+                <label><input type="radio" name="q34" value="Radioallergosorbent test (RAST)"> Radioallergosorbent test (RAST)</label>
+                <label><input type="radio" name="q34" value="Desensitization therapy"> Desensitization therapy</label>
+                <label><input type="radio" name="q34" value="Skin patch test"> Skin patch test</label>
+                <label><input type="radio" name="q34" value="Skin prick test"> Skin prick test</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-35">
+            <p>35. Which one of the following statements regarding allergy testing is incorrect?</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="Both irritants and allergens may be tested for using skin patch testing"> Both irritants and allergens may be tested for using skin patch testing</label>
+                <label><input type="radio" name="q35" value="The radioallergosorbent test determines the level of IgE to a specific allergen"> The radioallergosorbent test determines the level of IgE to a specific allergen</label>
+                <label><input type="radio" name="q35" value="Skin prick testing is easy to perform and inexpensive"> Skin prick testing is easy to perform and inexpensive</label>
+                <label><input type="radio" name="q35" value="Skin prick testing should be read after 48 hours"> Skin prick testing should be read after 48 hours</label>
+                <label><input type="radio" name="q35" value="Skin prick testing normally includes a histamine control"> Skin prick testing normally includes a histamine control</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-36">
+            <p>36. Nurse who is known to have an allergy to latex develops a widespread urticarial rash and facial oedema shortly after eating lunch. Which food is she most likely to have consumed?</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="Peanut"> Peanut</label>
+                <label><input type="radio" name="q36" value="Apple"> Apple</label>
+                <label><input type="radio" name="q36" value="Grapes"> Grapes</label>
+                <label><input type="radio" name="q36" value="Pear"> Pear</label>
+                <label><input type="radio" name="q36" value="Banana"> Banana</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-37">
+            <p>37. 28-year-old mechanic presents with itching and tingling in his lips and mouth. Upon further questioning, he ate an apple a few minutes before the tingling in his lips and mouth began. Moreover, he has not reported any difficulties swallowing since and no vomiting or diarrhoea. The above presentation happened to him last week when he ate the same type of apple, and the tingling and itchiness resolved within a few minutes. He has a past medical history of hay fever in the spring months well-controlled with antihistamines. His father has a condition which he does not know the name of, which results in sporadic swelling of the skin around the eyes and recurrent abdominal pain. On examination his lips are erythematous and mildly swollen. There is no swelling or rashes elsewhere and he is not wheezing upon listening to his lungs. All his observations are within normal limits. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="Allergic contact dermatitis"> Allergic contact dermatitis</label>
+                <label><input type="radio" name="q37" value="Anaphylaxis"> Anaphylaxis</label>
+                <label><input type="radio" name="q37" value="Apple allergy"> Apple allergy</label>
+                <label><input type="radio" name="q37" value="Oral allergy syndrome"> Oral allergy syndrome</label>
+                <label><input type="radio" name="q37" value="C1 esterase inhibitor deficiency"> C1 esterase inhibitor deficiency</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-38">
+            <p>38. 23-year-old woman presented with symptoms of itchiness in her mouth and at the back of her throat after consuming peaches on several occasions with some mild swelling which settles down over time. What is the likely condition in this case?</p>
+            <div class="options">
+                <label><input type="radio" name="q38" value="Angioedema"> Angioedema</label>
+                <label><input type="radio" name="q38" value="Burning mouth syndrome"> Burning mouth syndrome</label>
+                <label><input type="radio" name="q38" value="Contact cheilitis"> Contact cheilitis</label>
+                <label><input type="radio" name="q38" value="Contact stomatitis"> Contact stomatitis</label>
+                <label><input type="radio" name="q38" value="Oral allergy syndrome"> Oral allergy syndrome</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-39">
+            <p>39. You review a 24-year-old woman with a history of asthma in the Emergency Department. She has been admitted with acute shortness of breath associated with tongue-tingling and an urticarial rash after eating a meal containing shellfish. Her symptoms settle with intramuscular adrenaline and nebulised salbutamol. What is the most useful test to establish whether this episode was due to anaphylaxis?</p>
+            <div class="options">
+                <label><input type="radio" name="q39" value="Serum tryptase"> Serum tryptase</label>
+                <label><input type="radio" name="q39" value="Serum IgE"> Serum IgE</label>
+                <label><input type="radio" name="q39" value="Plasma histamine"> Plasma histamine</label>
+                <label><input type="radio" name="q39" value="Eosinophil count"> Eosinophil count</label>
+                <label><input type="radio" name="q39" value="C-reactive protein"> C-reactive protein</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-40">
+            <p>40. 30-year-old woman is admitted to the Emergency Department following a suspected peanut allergy. On examination she has gross facial and tongue oedema. Her oxygen saturations are 97% on room air, pulse is 96 / min and blood pressure is 90/62 mmHg. The paramedics have already gained intravenous access. What is the most appropriate way to give adrenaline in this situation?</p>
+            <div class="options">
+                <label><input type="radio" name="q40" value="Nebulised"> Nebulised</label>
+                <label><input type="radio" name="q40" value="Subdermally"> Subdermally</label>
+                <label><input type="radio" name="q40" value="Intramuscularly"> Intramuscularly</label>
+                <label><input type="radio" name="q40" value="Intravenously"> Intravenously</label>
+                <label><input type="radio" name="q40" value="Subcutaenously"> Subcutaenously</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-41">
+            <p>41. 18-year-old, with no medical issues, is rushed into the emergency department (ED) following an acute onset of symptoms whilst eating a nut cereal bar. Her family reports she suddenly had difficulty breathing with an audible wheeze, swelling of her tongue, changes in her voice and developed a widespread rash.
+            A stat dose of IM adrenaline was given in the ED and all her symptoms rapidly resolve. She is now asymptomatic and her exam is normal. The likely diagnosis is explained, blood tests taken and a follow-up appointment booked. She is provided with 2 adrenaline auto-injectors with appropriate training.
+            When would it be most appropriate to discharge this patient?</p>
+            <div class="options">
+                <label><input type="radio" name="q41" value="Minimum of 12 hours after symptom resolution"> Minimum of 12 hours after symptom resolution</label>
+                <label><input type="radio" name="q41" value="Minimum of 2 hours after symptom resolution"> Minimum of 2 hours after symptom resolution</label>
+                <label><input type="radio" name="q41" value="Minimum of 24 hours after symptom resolution"> Minimum of 24 hours after symptom resolution</label>
+                <label><input type="radio" name="q41" value="Minimum of 6 hours after symptom resolution"> Minimum of 6 hours after symptom resolution</label>
+                <label><input type="radio" name="q41" value="Once results of serum tryptase are available"> Once results of serum tryptase are available</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-42">
+            <p>42. 24-year-old male is admitted with difficulties breathing. He states that he was at a restaurant having dinner when he noticed a rash on his arms, followed by nausea and difficulties with taking in a breath. On examination, there is generalised urticaria and swelling of his tongue and pharynx.
+            There is audible inspiratory stridor. You treat him with intramuscular adrenaline but due to ongoing symptoms, a further dose is given after 5 minutes. How long will you monitor the patient before considering discharge?</p>
+            <div class="options">
+                <label><input type="radio" name="q42" value="1 hour"> 1 hour</label>
+                <label><input type="radio" name="q42" value="2 hours"> 2 hours</label>
+                <label><input type="radio" name="q42" value="6 hours"> 6 hours</label>
+                <label><input type="radio" name="q42" value="48 hours"> 48 hours</label>
+                <label><input type="radio" name="q42" value="1 week"> 1 week</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-43">
+            <p>43. Which of the following is deficient in patients with hereditary angioedema?</p>
+            <div class="options">
+                <label><input type="radio" name="q43" value="C1-INH"> C1-INH</label>
+                <label><input type="radio" name="q43" value="C3"> C3</label>
+                <label><input type="radio" name="q43" value="Heat shock protein type"> Heat shock protein type</label>
+                <label><input type="radio" name="q43" value="C6"> C6</label>
+                <label><input type="radio" name="q43" value="Histamine degradation protein (HDP)"> Histamine degradation protein (HDP)</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-44">
+            <p>44. 23-year-old woman is reviewed in the Allergy clinic. She had presented to the Emergency Department two weeks ago with a wheeze and swollen lips, which was unresponsive to multiple doses of adrenaline. She reports that both she and her mother have had a number of allergic reactions in the past, but have never been able to identify a trigger. 
+            Given the likely diagnosis, which of the following is the most appropriate screening test to request from this clinic?</p>
+            <div class="options">
+                <label><input type="radio" name="q44" value="C1 complement levels"> C1 complement levels</label>
+                <label><input type="radio" name="q44" value="C1 inhibitor levels"> C1 inhibitor levels</label>
+                <label><input type="radio" name="q44" value="C2 complement levels"> C2 complement levels</label>
+                <label><input type="radio" name="q44" value="C4 complement levels"> C4 complement levels</label>
+                <label><input type="radio" name="q44" value="Mast cell tryptase"> Mast cell tryptase</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-45">
+            <p>45. 31-year-old woman presents to the emergency department with facial swelling and difficulty breathing. This is her fourth episode of this within the last 2 years, and has previously not been helped by IM adrenaline, but rather has self-resolved within hours/days. 
+            After the attack has subsided, you undertake some blood tests which confirm the diagnosis of hereditary angioedema. She is concerned as she plans to become pregnant, and wants to know what the risk of her passing the condition onto her children is. 
+            What are the chances that a child of hers will be affected by this condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q45" value="0%"> 0%</label>
+                <label><input type="radio" name="q45" value="25%"> 25%</label>
+                <label><input type="radio" name="q45" value="50%"> 50%</label>
+                <label><input type="radio" name="q45" value="50% if the child is male, 0% if the child is female"> 50% if the child is male, 0% if the child is female</label>
+                <label><input type="radio" name="q45" value="100% regardless of the sex of the child"> 100% regardless of the sex of the child</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-46">
+            <p>46. What chemical mediator is mainly responsible for the tissue oedema seen in patients in hereditary angioedema?</p>
+            <div class="options">
+                <label><input type="radio" name="q46" value="Histamine"> Histamine</label>
+                <label><input type="radio" name="q46" value="Serotonin"> Serotonin</label>
+                <label><input type="radio" name="q46" value="Neurokinin A"> Neurokinin A</label>
+                <label><input type="radio" name="q46" value="Bradykinin"> Bradykinin</label>
+                <label><input type="radio" name="q46" value="Nitric oxide"> Nitric oxide</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-47">
+            <p>47. Which of the following may be used in the treatment of hereditary angioedema?</p>
+            <div class="options">
+                <label><input type="radio" name="q47" value="Anabolic steroids"> Anabolic steroids</label>
+                <label><input type="radio" name="q47" value="Oral contraceptive pill"> Oral contraceptive pill</label>
+                <label><input type="radio" name="q47" value="ACE inhibitors"> ACE inhibitors</label>
+                <label><input type="radio" name="q47" value="Beta-blockers"> Beta-blockers</label>
+                <label><input type="radio" name="q47" value="Aspirin"> Aspirin</label>
+            </div>
+        </div>
+
+        <button class="btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+        <button class="btn" id="submitBtn" onclick="evaluateQuiz()" style="display: none;">Submit Quiz</button>
+
+        <div class="result" id="result">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers-summary"></div>
+        </div>
+    </div>
+
+    <script>
+        // إضافة حدث للكيبورد لمنع حفظ الصفحة
+        document.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && event.key === "s") {
+                event.preventDefault();
+                alert("تم منع حفظ الصفحة!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع فتح أدوات المطور
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+                event.preventDefault();
+                alert("تم تعطيل أدوات المطور!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع النقر بزر اليمين
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // يمنع فتح قائمة السياق
+            alert("النقر بزر الماوس الأيمن غير مسموح به.");
+        });
+
+        let currentQuestion = 1;
+        const totalQuestions = 47;
+        let score = 0;
+        let timerInterval;
+        const answers = {
+            q1: "MRI imaging of the spinal cord",
+            q2: "High-dose oral dexamethasone",
+            q3: "Hemophilia A",
+            q4: "von Willebrand antigens level is grossly diminished",
+            q5: "Tranexemic acid",
+            q6: "von Willebrand disease",
+            q7: "Von weilbrand disease",
+            q8: "Thrombocytopaenia",
+            q9: "High erythropoietin level",
+            q10: "Phlebotomy",
+            q11: "Desmopressin",
+            q12: "Stimulates release of von willebrand factor from endothelial cells",
+            q13: "Essential thrombocytopenia",
+            q14: "Dohle bodies in the white cells",
+            q15: "Splenomegaly",
+            q16: "Myelofibrosis",
+            q17: "Dacrocytes",
+            q18: "Raised ESR",
+            q19: "JAK2 mutation screen",
+            q20: "Myelofibrosis + acute myeloid leukaemia",
+            q21: "Haemochromatosis",
+            q22: "Internal bleeding",
+            q23: "Colonoscopy",
+            q24: "Dubin johnson syndrome",
+            q25: "Thrombocytopenia",
+            q26: "Rocky mountain fever",
+            q27: "Rocky mountain spotted fever",
+            q28: "Hodgkin's disease",
+            q29: "Histoplasmosis",
+            q30: "Extrinsic allergic alveolitis",
+            q31: "Skin patch test",
+            q32: "Skin patch test",
+            q33: "Skin prick test",
+            q34: "Radioallergosorbent test (RAST)",
+            q35: "Skin prick testing should be read after 48 hours",
+            q36: "Banana",
+            q37: "Oral allergy syndrome",
+            q38: "Oral allergy syndrome",
+            q39: "Serum tryptase",
+            q40: "Intramuscularly",
+            q41: "Minimum of 2 hours after symptom resolution",
+            q42: "6 hours",
+            q43: "C1-INH",
+            q44: "C4 complement levels",
+            q45: "50%",
+            q46: "Bradykinin",
+            q47: "Anabolic steroids"
+        };
+
+        function showQuestion() {
+            document.querySelectorAll('.question').forEach((q, index) => {
+                q .style.display = index + 1 === currentQuestion ? 'block' : 'none';
+            });
+            document.getElementById('nextBtn').style.display = currentQuestion < totalQuestions ? 'block' : 'none';
+            document.getElementById('submitBtn').style.display = currentQuestion === totalQuestions ? 'block' : 'none';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            clearInterval(timerInterval);
+            startTimer();
+            showQuestion();
+        }
+
+        function startTimer() {
+            let timeRemaining = 60;
+            document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    if (currentQuestion < totalQuestions) {
+                        nextQuestion();
+                    } else {
+                        evaluateQuiz();
+                    }
+                }
+            }, 1000);
+        }
+
+        function evaluateQuiz() {
+            score = 0;
+            let summary = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const correctAnswer = answers[`q${i}`];
+                const questionElement = document.getElementById(`question-${i}`);
+                const options = document.querySelectorAll(`input[name="q${i}"]`);
+                let questionSummary = `<p><strong>Question ${i}: </strong>${questionElement.querySelector('p').innerText}</p>`;
+
+                options.forEach(option => {
+                    const optionLabel = option.parentElement;
+                    if (option.value === correctAnswer) {
+                        optionLabel.style.color = 'green';
+                    } else if (selectedOption && selectedOption.value === option.value) {
+                        optionLabel.style.color = 'red';
+                    }
+                });
+
+                questionSummary += `<div>Answer: <strong>${selectedOption ? selectedOption.value : 'None selected'}</strong></div>`;
+                questionSummary += `<div>Correct answer: <strong>${correctAnswer}</strong></div>`;
+
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                    summary += questionSummary + `<p class="correct">Correct</p>`;
+                } else {
+                    summary += questionSummary + `<p class="incorrect">Incorrect</p>`;
+                }
+            }
+
+            document.getElementById('score').textContent = `Your score: ${score} out of ${totalQuestions}`;
+            document.getElementById('answers-summary').innerHTML = summary;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('timer').style.display = 'none'; 
+            document.querySelectorAll('.question').forEach((q) => q.style.display = 'none');
+
+            clearInterval(timerInterval);
+        }
+
+        window.onload = function() {
+            showQuestion();
+            startTimer();
+        };
+        
+        
+        function nextQuestion() {
+    // Increase the current question counter
+            currentQuestion++;
+
+            // Reset the timer
+            clearInterval(timerInterval); // Stop the current timer
+            startTimer(); // Start the timer from the beginning
+
+            // Show the next question
+            showQuestion();
+        }
+        
+    </script>
+</body>
+</html>
